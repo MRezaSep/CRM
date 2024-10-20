@@ -1,0 +1,953 @@
+/* ================================================================ >> Imports << */
+
+/* ================================================================ >> Imports << */
+
+/* ================================================================== >> Basic << */
+
+/* ------------------------------------------------------- >> * << */
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+/* ------------------------------------------------------- >> * << */
+
+/* -------------------------------------------- >> scroll style << */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0);
+}
+
+/* -------------------------------------------- >> scroll style << */
+
+/* ---------------------------------------------------- >> font << */
+@font-face {
+    font-family: lalezar;
+    src: url("./assets/fonts/Lalezar-Regular.ttf");
+}
+
+@font-face {
+    font-family: vazir;
+    src: url("./assets/fonts/Vazir-Regular-FD.ttf");
+}
+
+@font-face {
+    font-family: vazirB;
+    src: url("./assets/fonts/Vazir-Bold-FD.ttf");
+}
+
+/* ---------------------------------------------------- >> font << */
+
+/* ---------------------------------------------------- >> root << */
+:root {
+    --blue: #0072bc;
+    --gold: #fdb813;
+    --black: #282828;
+}
+
+/* ---------------------------------------------------- >> root << */
+
+/* ---------------------------------------------- >> All Father << */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: vazir;
+    overflow: hidden;
+}
+
+/* ---------------------------------------------- >> All Father << */
+
+/* ================================================================== >> Basic << */
+
+/* ================================================================ >> Layer 1 << */
+.Layer1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    background-color: var(--gold);
+}
+
+/* ------------------------------------------------- >> Body <<  */
+#BG_1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    position: relative;
+}
+
+/* ------------------------------------------------- >> Body <<  */
+
+/* ------------------------------------------------- >> wave <<  */
+.svg {
+    position: absolute;
+    bottom: -1px;
+}
+
+.wave1 {
+    fill: #00a1e4;
+    animation: Moving1 6s linear infinite;
+}
+
+.wave2 {
+    fill: #0095da;
+    animation: Moving1 7s linear infinite;
+}
+
+.wave3 {
+    fill: #0089cf;
+    animation: Moving1 8s linear infinite;
+}
+
+.wave4 {
+    fill: #007dc5;
+    animation: Moving1 9s linear infinite;
+}
+
+.wave5 {
+    fill: #0072bc;
+    animation: Moving1 10s linear infinite;
+}
+
+@keyframes Moving1 {
+    0% {
+        transform: translateX(0%);
+    }
+
+    50% {
+        transform: translateX(-10px);
+        scale: 1.1;
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* ------------------------------------------------- >> wave <<  */
+
+/* ================================================================ >> Layer 1 << */
+
+/* ================================================================ >> Layer 2 << */
+.Layer2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s;
+}
+
+.Layer2.remove {
+    transition: all 0.5s;
+    top: -100%;
+}
+
+/* ------------------------------------------------- >> Body <<  */
+#BG_2 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ------------------------------------------------- >> Body <<  */
+
+/* ------------------------------------------------- >> Auth <<  */
+.AuthContainer {
+    width: 40%;
+    height: 90%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: clamp(10px, 1vw, 20px);
+    transition: all 1s;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.AuthTitle {
+    font-family: vazirB;
+    padding: clamp(12px, 0.8vw, 24px) clamp(16px, 3vw, 38px);
+    font-size: clamp(16px, 1.5vw, 38px);
+    background-color: var(--gold);
+    border-bottom-left-radius: clamp(10px, 0.5vw, 20px);
+    border-bottom-right-radius: clamp(10px, 0.5vw, 20px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------------------------------------- >> Auth <<  */
+
+/* -------------------------------------------- >> Auth Text <<  */
+.AuthText {
+    width: max-content;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    font-size: clamp(16px, 1.5vw, 42px);
+}
+
+/* -------------------------------------------- >> Auth Text <<  */
+
+/* ------------------------------------------ >> Phone Feild <<  */
+.PhoneFeild {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    width: 90%;
+    height: max-content;
+    padding: clamp(8px, 1.2vw, 34px) clamp(16px, 2vw, 34px);
+    background-color: var(--gold);
+    border-radius: clamp(10px, 1vw, 20px);
+    outline: none;
+    border: none;
+    text-align: center;
+    font-family: vazir;
+    font-size: clamp(16px, 1vw, 34px);
+    color: var(--black);
+    transition: all 0.5s;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    opacity: 1;
+    z-index: 1;
+}
+
+.PhoneFeild.error {
+    transition: all 0.5s;
+    background-color: red;
+    color: white;
+    caret-color: white;
+}
+
+.PhoneFeild.error::placeholder {
+    transition: all 0.5s;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.PhoneFeild.remove {
+    transition: all 0.5s;
+    opacity: 0;
+    position: absolute;
+    top: 35%;
+    left: -100%;
+    transform: translate(100%, -35%);
+}
+
+.PhoneFeild::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: clamp(12px, 1vw, 24px);
+}
+
+/* ------------------------------------------ >> Phone Feild <<  */
+
+/* -------------------------------------------- >> OTP Feild <<  */
+.otpContainer {
+    position: absolute;
+    left: 100%;
+    top: 30%;
+    transform: translate(-100%, -30%);
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0px;
+    transition: all 0.5s;
+    opacity: 0;
+    scale: 0;
+    z-index: 1;
+}
+
+.otpContainer.show {
+    transition: all 0.5s;
+    opacity: 1;
+    scale: 1;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.optFeild {
+    width: clamp(45px, 4vw, 100px);
+    height: clamp(45px, 4vw, 100px);
+    margin: 0px 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background-color: var(--gold);
+    caret-color: var(--black);
+    color: var(--black);
+    font-size: clamp(16px, 1.5vw, 38px);
+    transition: all 0.5s;
+    font-family: vazir;
+}
+
+.optFeild.loading {
+    pointer-events: none;
+    transition: all 0.5s;
+    scale: 0.75;
+    animation: OTPRotate 1s ease infinite;
+    opacity: 0.5;
+}
+
+@keyframes OTPRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.optFeild.check {
+    transition: all 0.5s;
+    background-color: green;
+    color: white;
+}
+
+.optFeild.error {
+    transition: all 0.5s;
+    background-color: red;
+    color: white;
+}
+
+/* -------------------------------------------- >> OTP Feild <<  */
+
+/* --------------------------------------------- >> Auth Btn <<  */
+.CheckBtn {
+    cursor: pointer;
+    width: 60%;
+    height: max-content;
+    padding: clamp(8px, 0.75vw, 16px) clamp(16px, 2vw, 34px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gold);
+    border-radius: clamp(10px, 0.5vw, 25px);
+    color: var(--black);
+    font-size: clamp(14px, 1.2vw, 38px);
+    transition: all 0.4s;
+    z-index: 1;
+    font-family: vazirB;
+}
+
+.CheckBtn:hover {
+    transition: all 0.4s;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+.CheckBtn:active {
+    transition: all 0.4s;
+}
+
+.CheckBtn.pop {
+    pointer-events: none;
+}
+
+.CheckBtn.remove {
+    transition: all 0.4s;
+    position: absolute;
+    top: 50%;
+    left: -200%;
+    transform: translate(200%, -50%);
+    opacity: 0;
+}
+
+.BtnLoading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    scale: 0;
+    background-color: var(--gold);
+    border-radius: clamp(10px, 0.5vw, 25px);
+    font-size: clamp(16px, 1.5vw, 38px);
+}
+
+.CheckBtn.pop .BtnLoading {
+    transition: all 0.4s;
+    scale: 1;
+}
+
+#OTPBtn {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+}
+
+#OTPBtn.show {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    opacity: 1;
+}
+
+/* --------------------------------------------- >> Auth Btn <<  */
+
+/* -------------------------------------------- >> Animation <<  */
+.Animation {
+    width: 80%;
+    height: 40%;
+    position: absolute;
+    bottom: 0px;
+    z-index: 0;
+    font-family: lalezar;
+}
+
+.AnimationContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* -------------- > Animation Notification < */
+.AnimationNotification {
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    top: -20%;
+    opacity: 0;
+    z-index: 1;
+    background-color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    font-size: clamp(14px, 1vw, 46px);
+
+}
+
+.AnimationNotification.popup {
+    transition: all 0.5s;
+    top: 0%;
+    opacity: 1;
+}
+
+/* -------------- > Animation Notification < */
+
+/* ------------------- > Animation Content < */
+.AnimationContent {
+    position: absolute;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+    opacity: 0;
+    width: 95%;
+    height: 100%;
+    background-color: var(--black);
+    border: clamp(6px, 1vw, 38px) solid rgb(206, 206, 206);
+    border-bottom: 0px;
+    border-top-left-radius: clamp(15px, 2vw, 12vw);
+    border-top-right-radius: clamp(15px, 2vw, 12vw);
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+}
+
+.AnimationContent.show {
+    transition: all 0.5s;
+    bottom: 0%;
+    opacity: 1;
+}
+
+/* ------------------- > Animation Content < */
+
+/* ------------------- > Animation Content < */
+.AnimationTitleText {
+    width: max-content;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: clamp(1rem, 1.2vw, 3rem);
+    transition: all 0.5s;
+    opacity: 1;
+}
+
+.AnimationTitleText.change {
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+/* ------------------- > Animation Content < */
+
+/* --------------- > Animation Phone Feild < */
+.AnimationPhoneFeild {
+    width: 90%;
+    height: 20%;
+    background-color: white;
+    border-radius: clamp(10px, 10px, 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    opacity: 1;
+}
+
+.AnimationPhoneFeild.remove {
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.AnimationPhoneFeildContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.AnimationPhoneFeildHint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    font-size: clamp(10px, 1vw, 34px);
+    color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: all 0.5s;
+}
+
+.AnimationPhoneFeildHint.remove {
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.AnimationPhoneFeildRecangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 0%;
+    height: 50%;
+    border-radius: 5px;
+    background-color: var(--black);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.AnimationPhoneFeildRecangle.show {
+    opacity: 1;
+    width: 60%;
+    transition: all 0.5s ease 0.5s;
+}
+
+/* --------------- > Animation Phone Feild < */
+
+/* ----------------- > Animation OTO Feild < */
+.AnimationOTPContainer {
+    width: 90%;
+    height: 25%;
+    border-radius: clamp(10px, 10px, 20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.AnimationOTPContainer.show {
+    transition: all 0.5s;
+    opacity: 1;
+}
+
+.AnimationOTPFeild {
+    margin: 0px 5px;
+    width: 15%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.5s;
+    font-size: clamp(14px, 1vw, 44px);
+}
+
+.AnimationOTPFeild.check {
+    transition: all 0.5s;
+    background-color: green;
+}
+
+.AnimationOTPFeild.check span {
+    transition: all 0.5s;
+    color: white;
+}
+
+.AnimationOTPFeild.show {
+    color: var(--black);
+    transition: all 0.5s;
+}
+
+/* ----------------- > Animation OTO Feild < */
+
+/* ----------------------- > Animation Btn < */
+.AnimationBtn {
+    width: 25%;
+    height: 20%;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -90%);
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: clamp(1rem, 1.2vw, 2.5rem);
+    transition: all 0.5s;
+    scale: 1;
+}
+
+.AnimationBtn.click {
+    scale: 0.95;
+    transition: all 0.5s;
+}
+
+.AnimatedBtnContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.AnimationBtn.check {
+    transition: all 0.5s;
+    background-color: green;
+    color: white;
+}
+
+.AnimationBtn.check span {
+    transition: all 0.5s;
+    color: white;
+}
+
+.AnimationBtn.check iconify-icon {
+    transition: all 0.5s;
+    color: white;
+}
+
+.AnimationBtn span {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-80%, -50%);
+    transition: all 0.5s;
+}
+
+.AnimatedBtnPointer {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    border-radius: 100%;
+    background-color: rgb(206, 206, 206);
+    opacity: 0;
+}
+
+.AnimatedBtnPointer.click {
+    width: 15px;
+    height: 15px;
+    transition: all 0.5s;
+    opacity: 1;
+}
+
+.AnimationBtn iconify-icon {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    transition: all 0.5s;
+}
+
+/* ----------------------- > Animation Btn < */
+
+/* ------------------- > Animation Success < */
+.AnimationSuccess {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black);
+    transition: all 0.5s;
+    scale: 0;
+    border-top-left-radius: clamp(15px, 2vw, 12vw);
+    border-top-right-radius: clamp(15px, 2vw, 12vw);
+}
+
+.AnimationSuccess.show {
+    transition: all 0.5s;
+    scale: 1;
+}
+
+.AnimationSuccess iconify-icon {
+    color: green;
+    font-size: clamp(1.5rem, 3vw, 6rem);
+}
+
+.AnimationSuccess.show iconify-icon {
+    animation: RotateLive 2s ease 0.5s forwards;
+}
+
+@keyframes RotateLive {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+.AnimationSuccessText {
+    color: white;
+    font-size: clamp(1rem, 1.2vw, 3.5rem);
+}
+
+/* ------------------- > Animation Success < */
+
+/* -------------------------------------------- >> Animation <<  */
+
+/* ================================================================ >> Layer 2 << */
+
+/* ================================================================ >> Layer 3 << */
+.Layer3 {
+    width: 100%;
+    height: max-content;
+    top: -100%;
+    position: absolute;
+    z-index: 2;
+    transition: all 1s;
+}
+
+.Layer3.pop {
+    transition: all 0.5s;
+    top: 0%;
+}
+
+/* ------------------------------------------------- >> Body <<  */
+#BG_3 {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+/* ------------------------------------------------- >> Body <<  */
+
+/* ---------------------------------------------- >> massage <<  */
+.massageContainer {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: clamp(12px, 1vw, 24px) clamp(16px, 1.5vw, 38px);
+    background-color: var(--blue);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: white;
+}
+
+.massageContainer.error {
+    background-color: red;
+}
+
+.massageContainer.check {
+    background-color: green;
+}
+
+.MassageText {
+    font-size: clamp(14px, 1vw, 38px);
+}
+
+.MassageIcon {
+    margin-left: 8px;
+    font-size: clamp(14px, 1.4vw, 38px);
+}
+
+/* ---------------------------------------------- >> massage <<  */
+
+/* ================================================================ >> Layer 3 << */
+
+/* ================================================================ >> Layer 4 << */
+.Layer4 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -100%;
+    z-index: 3;
+}
+
+/* ------------------------------------------------- >> Body <<  */
+#BG_4 {
+    width: 100%;
+    height: max-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.LoadingIcon {
+    font-size: clamp(3rem, 4vw, 12rem);
+    color: white;
+    animation: Loading 2s linear infinite;
+}
+
+@keyframes Loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ------------------------------------------------- >> Body <<  */
+
+/* ================================================================ >> Layer 4 << */
+
+/* ============================================================ >> Media Query << */
+
+/* ------------------------------------------------ >> 4K << */
+@media screen and (min-width: 2560px) {
+
+    /* -------------------- > animation < */
+    .Animation {
+        height: 30%;
+    }
+
+    /* -------------------- > animation < */
+
+}
+
+/* ------------------------------------------------ >> 4K << */
+
+/* ------------------------------------------ >> L Laptop << */
+@media screen and (max-width: 1440px) {}
+
+/* ------------------------------------------ >> L Laptop << */
+
+/* ------------------------------------------ >> S Laptop << */
+@media screen and (max-width: 1024px) {
+
+    /* ------------------------- > auth < */
+    .AuthContainer {
+        width: 60%;
+    }
+
+    /* ------------------------- > auth < */
+}
+
+/* ------------------------------------------ >> S Laptop << */
+
+/* -------------------------------------------- >> tablet << */
+@media screen and (max-width: 768px) {
+
+    /* ------------------------- > auth < */
+    .AuthContainer {
+        width: 70%;
+    }
+
+    /* ------------------------- > auth < */
+}
+
+/* -------------------------------------------- >> tablet << */
+
+/* ------------------------------------------ >> L mobile << */
+@media screen and (max-width: 425px) {
+
+    /* ------------------------- > auth < */
+    .AuthContainer {
+        width: 90%;
+    }
+
+    /* ------------------------- > auth < */
+
+    /* -------------------- > animation < */
+    .Animation {
+        width: 100%;
+        height: 40%;
+    }
+
+    .AnimationOTPFeild {
+        width: 20%;
+    }
+
+    .AnimationBtn {
+        width: 35%;
+    }
+
+    /* -------------------- > animation < */
+
+}
+
+/* ------------------------------------------ >> L mobile << */
+
+/* ------------------------------------------ >> S mobile << */
+@media screen and (max-width: 320px) {}
+
+/* ------------------------------------------ >> S mobile << */
+
+/* ============================================================ >> Media Query << */
